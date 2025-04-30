@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Book Appointment | MediGo</title>
+  <link rel="stylesheet" href="appointment.css" />
+</head>
+<body>
+
+  <!-- Header -->
+  <header class="header">
+    <div class="container">
+      <h1 class="logo">MediGo</h1>
+      <nav class="nav">
+        <a href="index.html">Home</a>
+        <a href="doctors.html">Doctors</a>
+        <a href="appointment.html" class="active">Appointments</a>
+        <a href="contact.html">Contact</a>
+        <a href="login.html">Login</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Appointment Booking Section -->
+  <section class="appointment-section">
+    <div class="container">
+      <h2>Book an Appointment</h2>
+      <p>Please fill out the form below to schedule your visit.</p>
+
+      <form class="appointment-form">
+        <div class="form-group">
+          <label for="name">Full Name</label>
+          <input type="text" id="name" placeholder="Your Name" required />
+        </div>
+
+        <div class="form-group">
+          <label for="doctor">Choose a Doctor</label>
+          <select id="doctor" required>
+            <option value="">Select Doctor</option>
+            <option value="dr-rahman">Dr. A. Rahman - Cardiologist</option>
+            <option value="dr-khan">Dr. S. Khan - Pediatrician</option>
+            <option value="dr-sadia">Dr. Sadia Noor - Gynecologist</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label for="date">Appointment Date</label>
+          <input type="date" id="date" required />
+        </div>
+
+        <div class="form-group">
+          <label for="time">Appointment Time</label>
+          <input type="time" id="time" required />
+        </div>
+
+        <div class="form-group">
+          <label for="reason">Reason for Visit</label>
+          <textarea id="reason" placeholder="Describe your symptoms or concern..." rows="4" required></textarea>
+        </div>
+
+        <button type="submit" class="btn">Confirm Appointment</button>
+      </form>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <p>&copy; 2025 MediGo. All rights reserved.</p>
+    </div>
+  </footer>
+
+</body>
+</html>
