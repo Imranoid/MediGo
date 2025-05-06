@@ -3,73 +3,78 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Book Appointment | MediGo</title>
-  <link rel="stylesheet" href="appointment.css" />
+  <title>MediGo | Book Appointment</title>
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
 
-  <!-- Header -->
-  <header class="header">
-    <div class="container">
-      <h1 class="logo">MediGo</h1>
-      <nav class="nav">
-        <a href="index.html">Home</a>
-        <a href="doctors.html">Doctors</a>
-        <a href="appointment.html" class="active">Appointments</a>
-        <a href="contact.html">Contact</a>
-        <a href="login.html">Login</a>
-      </nav>
-    </div>
-  </header>
+  <section class="appointment-section" aria-labelledby="appointment-title">
+    <h2 id="appointment-title">Book an Appointment</h2>
+    <form class="appointment-form" action="/schedule-appointment" method="post">
+      
+      <fieldset>
+        <legend>Personal Information</legend>
+        <div class="form-grid">
 
-  <!-- Appointment Booking Section -->
-  <section class="appointment-section">
-    <div class="container">
-      <h2>Book an Appointment</h2>
-      <p>Please fill out the form below to schedule your visit.</p>
+          <div class="form-group">
+            <label for="fullName">Full Name*</label>
+            <input type="text" id="fullName" name="fullName" placeholder="Your full name" required>
+          </div>
 
-      <form class="appointment-form">
-        <div class="form-group">
-          <label for="name">Full Name</label>
-          <input type="text" id="name" placeholder="Your Name" required />
+          <div class="form-group half-width">
+            <label for="email">Email Address*</label>
+            <input type="email" id="email" name="email" placeholder="you@example.com" required>
+          </div>
+
+          <div class="form-group half-width">
+            <label for="phone">Phone Number*</label>
+            <input type="tel" id="phone" name="phone" placeholder="(123) 456-7890" required>
+          </div>
+
+          <div class="form-group half-width">
+            <label for="age">Age*</label>
+            <input type="number" id="age" name="age" min="0" placeholder="Your age" required>
+          </div>
+
+          <div class="form-group half-width">
+            <label for="gender">Gender*</label>
+            <select id="gender" name="gender" required>
+              <option value="">Select Gender</option>
+              <option value="Female">Female</option>
+              <option value="Male">Male</option>
+              <option value="Other">Other</option>
+              <option value="NotSay">Prefer not to say</option>
+            </select>
+          </div>
+
         </div>
+      </fieldset>
 
-        <div class="form-group">
-          <label for="doctor">Choose a Doctor</label>
-          <select id="doctor" required>
-            <option value="">Select Doctor</option>
-            <option value="dr-rahman">Dr. A. Rahman - Cardiologist</option>
-            <option value="dr-khan">Dr. S. Khan - Pediatrician</option>
-            <option value="dr-sadia">Dr. Sadia Noor - Gynecologist</option>
-          </select>
+      <fieldset>
+        <legend>Appointment Details</legend>
+        <div class="form-grid">
+
+          <div class="form-group half-width">
+            <label for="date">Appointment Date*</label>
+            <input type="date" id="date" name="date" required>
+          </div>
+
+          <div class="form-group half-width">
+            <label for="time">Appointment Time*</label>
+            <input type="time" id="time" name="time" required>
+          </div>
+
+          <div class="form-group">
+            <label for="reason">Reason for Visit*</label>
+            <textarea id="reason" name="reason" rows="4" placeholder="Describe your reason for the visit" required></textarea>
+          </div>
+
         </div>
+      </fieldset>
 
-        <div class="form-group">
-          <label for="date">Appointment Date</label>
-          <input type="date" id="date" required />
-        </div>
-
-        <div class="form-group">
-          <label for="time">Appointment Time</label>
-          <input type="time" id="time" required />
-        </div>
-
-        <div class="form-group">
-          <label for="reason">Reason for Visit</label>
-          <textarea id="reason" placeholder="Describe your symptoms or concern..." rows="4" required></textarea>
-        </div>
-
-        <button type="submit" class="btn">Confirm Appointment</button>
-      </form>
-    </div>
+      <button type="submit">Submit Appointment</button>
+    </form>
   </section>
-
-  <!-- Footer -->
-  <footer class="footer">
-    <div class="container">
-      <p>&copy; 2025 MediGo. All rights reserved.</p>
-    </div>
-  </footer>
 
 </body>
 </html>

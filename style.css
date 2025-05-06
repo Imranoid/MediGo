@@ -40,22 +40,8 @@ a {
 }
 
 .logo {
-  display: flex;
-  align-items: center;
   font-size: 1.8rem;
   font-weight: bold;
-  color: #0077cc;
-}
-
-.logo svg,
-.logo img {
-  margin-right: 0.5rem;
-  height: 32px;
-  width: 32px;
-}
-
-.logo span {
-  font-size: 1.5rem;
   color: #0077cc;
 }
 
@@ -245,3 +231,123 @@ a {
     text-align: center;
   }
 }
+/* Appointment Form Section */
+/* Reset basic box model */
+* {
+  box-sizing: border-box;
+}
+
+/* Responsive container */
+.appointment-section {
+  max-width: 800px;
+  margin: 3rem auto;
+  padding: 2rem;
+  background-color: #ffffff;
+  border-radius: 1rem;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.05);
+}
+
+.appointment-section h2 {
+  text-align: center;
+  margin-bottom: 2rem;
+  font-size: 2rem;
+  color: #2c3e50;
+}
+
+.appointment-form fieldset {
+  border: none;
+  margin: 0;
+  padding: 0 0 1.5rem;
+}
+
+.appointment-form legend {
+  font-size: 1.2rem;
+  font-weight: 600;
+  margin-bottom: 1rem;
+  color: #3498db;
+}
+
+/* Form layout grid */
+.form-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.form-group {
+  flex: 1 1 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.form-group.half-width {
+  flex: 1 1 calc(50% - 1rem);
+}
+
+.form-group label {
+  margin-bottom: 0.5rem;
+  font-weight: 500;
+  font-size: 0.95rem;
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+  padding: 0.75rem 1rem;
+  font-size: 1rem;
+  border: 1px solid #ccd6dd;
+  border-radius: 0.5rem;
+  background-color: #fafafa;
+  transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+  border-color: #5a9bf5;
+  box-shadow: 0 0 0 0.15rem rgba(90, 155, 245, 0.25);
+  outline: none;
+  background-color: #fff;
+}
+
+textarea {
+  resize: vertical;
+  min-height: 100px;
+}
+
+/* Submit button */
+.appointment-form button {
+  width: 100%;
+  padding: 0.75rem;
+  background-color: #0d6efd;
+  color: white;
+  border: none;
+  border-radius: 0.5rem;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  margin-top: 1rem;
+}
+
+.appointment-form button:hover {
+  background-color: #0b5ed7;
+}
+
+.appointment-form button:focus {
+  outline: none;
+  box-shadow: 0 0 0 0.2rem rgba(13, 110, 253, 0.4);
+}
+
+/* Responsive adjustments */
+@media (max-width: 600px) {
+  .form-group.half-width {
+    flex: 1 1 100%;
+  }
+
+  .appointment-section {
+    margin: 1rem;
+    padding: 1.25rem;
+  }
+}
+
