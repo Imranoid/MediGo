@@ -8,73 +8,138 @@
 </head>
 <body>
 
-  <section class="appointment-section" aria-labelledby="appointment-title">
-    <h2 id="appointment-title">Book an Appointment</h2>
-    <form class="appointment-form" action="/schedule-appointment" method="post">
-      
-      <fieldset>
-        <legend>Personal Information</legend>
-        <div class="form-grid">
+  <!-- Header -->
+  <header class="header">
+    <div class="container">
+      <h1 class="logo">MediGo</h1>
+      <nav class="nav">
+        <a href="index.html">Home</a>
+        <a href="doctors.html">Doctors</a>
+        <a href="appointment.html" class="active">Appointments</a>
+        <a href="contact.html">Contact</a>
+        <a href="login.html">Login</a>
+      </nav>
+    </div>
+  </header>
 
-          <div class="form-group">
-            <label for="fullName">Full Name*</label>
-            <input type="text" id="fullName" name="fullName" placeholder="Your full name" required>
+  <!-- Appointment Section -->
+  <section class="appointment-section">
+    <div class="container">
+      <h2>Book an Appointment</h2>
+      <form class="appointment-form" action="/schedule-appointment" method="post">
+        
+        <fieldset>
+          <legend>Personal Information</legend>
+          <div class="form-grid">
+
+            <div class="form-group">
+              <label for="fullName">Full Name*</label>
+              <input type="text" id="fullName" name="fullName" required placeholder="Your full name">
+            </div>
+
+            <div class="form-group half-width">
+              <label for="email">Email Address*</label>
+              <input type="email" id="email" name="email" required placeholder="you@example.com">
+            </div>
+
+            <div class="form-group half-width">
+              <label for="phone">Phone Number*</label>
+              <input type="tel" id="phone" name="phone" required placeholder="(123) 456-7890">
+            </div>
+
+            <div class="form-group half-width">
+              <label for="age">Age*</label>
+              <input type="number" id="age" name="age" min="0" required placeholder="Your age">
+            </div>
+
+            <div class="form-group half-width">
+              <label for="gender">Gender*</label>
+              <select id="gender" name="gender" required>
+                <option value="">Select Gender</option>
+                <option value="Female">Female</option>
+                <option value="Male">Male</option>
+                <option value="Other">Other</option>
+                <option value="NotSay">Prefer not to say</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label for="specialty">Doctor Specialty*</label>
+              <select id="specialty" name="specialty" required>
+                <option value="">Select a specialty</option>
+                <option value="Psychiatry">Psychiatry</option>
+                <option value="Gynecology">Gynecology</option>
+                <option value="Pediatrics">Pediatrics</option>
+                <option value="Orthopedics">Orthopedics</option>
+                <option value="General">General Medicine</option>
+              </select>
+            </div>
+
           </div>
+        </fieldset>
 
-          <div class="form-group half-width">
-            <label for="email">Email Address*</label>
-            <input type="email" id="email" name="email" placeholder="you@example.com" required>
+        <fieldset>
+          <legend>Appointment Details</legend>
+          <div class="form-grid">
+            <div class="form-group half-width">
+              <label for="date">Appointment Date*</label>
+              <input type="date" id="date" name="date" required>
+            </div>
+
+            <div class="form-group half-width">
+              <label for="time">Appointment Time*</label>
+              <input type="time" id="time" name="time" required>
+            </div>
+
+            <div class="form-group">
+              <label for="reason">Reason for Visit*</label>
+              <textarea id="reason" name="reason" rows="4" required placeholder="Describe your reason for the visit"></textarea>
+            </div>
           </div>
+        </fieldset>
 
-          <div class="form-group half-width">
-            <label for="phone">Phone Number*</label>
-            <input type="tel" id="phone" name="phone" placeholder="(123) 456-7890" required>
-          </div>
-
-          <div class="form-group half-width">
-            <label for="age">Age*</label>
-            <input type="number" id="age" name="age" min="0" placeholder="Your age" required>
-          </div>
-
-          <div class="form-group half-width">
-            <label for="gender">Gender*</label>
-            <select id="gender" name="gender" required>
-              <option value="">Select Gender</option>
-              <option value="Female">Female</option>
-              <option value="Male">Male</option>
-              <option value="Other">Other</option>
-              <option value="NotSay">Prefer not to say</option>
-            </select>
-          </div>
-
-        </div>
-      </fieldset>
-
-      <fieldset>
-        <legend>Appointment Details</legend>
-        <div class="form-grid">
-
-          <div class="form-group half-width">
-            <label for="date">Appointment Date*</label>
-            <input type="date" id="date" name="date" required>
-          </div>
-
-          <div class="form-group half-width">
-            <label for="time">Appointment Time*</label>
-            <input type="time" id="time" name="time" required>
-          </div>
-
-          <div class="form-group">
-            <label for="reason">Reason for Visit*</label>
-            <textarea id="reason" name="reason" rows="4" placeholder="Describe your reason for the visit" required></textarea>
-          </div>
-
-        </div>
-      </fieldset>
-
-      <button type="submit">Submit Appointment</button>
-    </form>
+        <button type="submit" class="btn">Submit Appointment</button>
+      </form>
+    </div>
   </section>
+
+  <!-- Confirmation Modal -->
+  <div id="confirmationModal" class="modal hidden">
+    <div class="modal-content">
+      <p>Are you sure you want to submit this appointment?</p>
+      <button id="confirmBtn" class="btn">Yes, Confirm</button>
+      <button id="cancelBtn" class="btn cancel">Cancel</button>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <p>&copy; 2025 MediGo. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <!-- JavaScript -->
+  <script>
+    const form = document.querySelector(".appointment-form");
+    const modal = document.getElementById("confirmationModal");
+    const confirmBtn = document.getElementById("confirmBtn");
+    const cancelBtn = document.getElementById("cancelBtn");
+
+    form.addEventListener("submit", function (e) {
+      e.preventDefault(); // Stop normal submission
+      modal.classList.remove("hidden");
+    });
+
+    confirmBtn.addEventListener("click", function () {
+      modal.classList.add("hidden");
+      form.submit(); // Proceed to submit
+    });
+
+    cancelBtn.addEventListener("click", function () {
+      modal.classList.add("hidden");
+    });
+  </script>
 
 </body>
 </html>
